@@ -4,8 +4,8 @@ import io.mochasports.orm.domain.Users;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,6 +15,6 @@ public class GroupsDTO {
 
     private String name;
 
-    private Set<Users> users = new HashSet<>();
+    private List<Users> users = new ArrayList<>();
 
 }

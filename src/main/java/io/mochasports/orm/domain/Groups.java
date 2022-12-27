@@ -28,6 +28,6 @@ public class Groups {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private Set<Users> users = new HashSet<>();
+    private List<Users> users = new ArrayList<>();
 
 }
