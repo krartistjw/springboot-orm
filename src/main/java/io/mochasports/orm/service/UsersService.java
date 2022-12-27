@@ -1,7 +1,9 @@
 package io.mochasports.orm.service;
 
+import io.mochasports.orm.domain.Groups;
 import io.mochasports.orm.domain.Users;
 import io.mochasports.orm.dto.UsersDTO;
+import io.mochasports.orm.repository.GroupsRepository;
 import io.mochasports.orm.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,13 +15,16 @@ import java.util.List;
 public class UsersService {
 
     private final UsersRepository usersRepository;
+    private final GroupsRepository groupsRepository;
 
     public Users save(UsersDTO request){
+
         Users users = Users.builder()
                 .id(request.getId())
                 .name(request.getName())
                 .email(request.getEmail())
                 .mobile(request.getMobile())
+                .groups(request.getGroups())
                 .build();
 
         return usersRepository.save(users);

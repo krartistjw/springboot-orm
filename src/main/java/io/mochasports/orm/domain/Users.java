@@ -1,11 +1,11 @@
 package io.mochasports.orm.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Builder
@@ -17,7 +17,7 @@ import javax.persistence.Id;
 public class Users {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -25,5 +25,10 @@ public class Users {
     private String email;
 
     private String mobile;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Groups groups;
 
 }

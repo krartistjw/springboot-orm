@@ -1,17 +1,22 @@
 spring:
+#  datasource:
+#    driver-class-name: org.h2.Driver
+#    url: jdbc:h2:mem:ormdb
+#    user: sa
+#    password:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:ormdb
-    user: sa
-    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://175.114.66.229:13306/orm
+    username: root
+    password: WkaQhd200%
   jpa:
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.H2Dialect # H2 ?? ??
+        dialect: org.hibernate.dialect.MariaDB103Dialect
         format_sql: true
-        show-sql: true # sql ?? ??
+        show-sql: true
     defer-datasource-initialization: true
 
 logging:
