@@ -16,7 +16,7 @@ import java.util.*;
 public class Groups {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -25,8 +25,7 @@ public class Groups {
     @OneToMany(
         mappedBy = "groups",
         fetch = FetchType.LAZY,
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
+        cascade = { CascadeType.ALL }
     )
     private List<Users> users = new ArrayList<>();
 
