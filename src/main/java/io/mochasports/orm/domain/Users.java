@@ -1,11 +1,11 @@
 package io.mochasports.orm.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Builder
@@ -26,9 +26,12 @@ public class Users {
 
     private String mobile;
 
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "group_id")
-    private Groups groups;
+    @OneToMany(
+            mappedBy = "users",
+            fetch = FetchType.LAZY,
+            cascade = { CascadeType.PERSIST }
+    )
+    @JsonIdentityReference(alwaysAsId = true)
+    private List<UsersGroups> usersGroups = new ArrayList<>();
 
 }

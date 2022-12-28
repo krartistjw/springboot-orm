@@ -18,6 +18,7 @@ public class GroupsService {
         Groups groups = Groups.builder()
                 .id(request.getId())
                 .name(request.getName())
+                .usersGroups(request.getUsersGroups())
                 .build();
 
         return groupsRepository.save(groups);

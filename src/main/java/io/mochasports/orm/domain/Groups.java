@@ -1,6 +1,6 @@
 package io.mochasports.orm.domain;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,12 +21,12 @@ public class Groups {
 
     private String name;
 
-    @JsonManagedReference
     @OneToMany(
         mappedBy = "groups",
         fetch = FetchType.LAZY,
         cascade = { CascadeType.PERSIST }
     )
-    private List<Users> users = new ArrayList<>();
+    @JsonIdentityReference(alwaysAsId = true)
+    private List<UsersGroups> usersGroups = new ArrayList<>();
 
 }

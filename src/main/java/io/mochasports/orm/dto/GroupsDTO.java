@@ -1,6 +1,6 @@
 package io.mochasports.orm.dto;
 
-import io.mochasports.orm.domain.Users;
+import io.mochasports.orm.domain.UsersGroups;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,6 +15,6 @@ public class GroupsDTO {
 
     private String name;
 
-    private List<Users> users = new ArrayList<>();
+    private List<UsersGroups> usersGroups = new ArrayList<>();
 
 }

@@ -15,7 +15,6 @@ import java.util.List;
 public class UsersService {
 
     private final UsersRepository usersRepository;
-    private final GroupsRepository groupsRepository;
 
     public Users save(UsersDTO request){
 
@@ -24,7 +23,7 @@ public class UsersService {
                 .name(request.getName())
                 .email(request.getEmail())
                 .mobile(request.getMobile())
-                .groups(request.getGroups())
+                .usersGroups(request.getUsersGroups())
                 .build();
 
         return usersRepository.save(users);
